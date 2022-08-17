@@ -1,6 +1,27 @@
-<h1 > {{titulo}}</h1>
-<ul>
-    <li *ngFor="let al of alunos">
-        {{al.nome}}</li>  
-    
-</ul>
+<div class="alun">
+  <app-titulo [titulo]="titulo"></app-titulo>
+    <!-- https://getbootstrap.com/docs/4.0/content/tables/-->
+  
+    <div class="tab">
+        <table class="table">
+        <thead class="thead-dark">
+          <tr >
+            <th scope="col">ID</th>
+            <th scope="col">NOME</th>
+            <th scope="col">SOBRENOME</th>
+            <th scope="col">TELELFONE</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let aluno of alunos">
+            <th scope="row">{{aluno.id}}</th>
+            <td>{{aluno.nome}}</td>
+            <td>{{aluno.sobrenome}}</td>
+            <td>{{aluno.telefone}}</td>
+          </tr>
+          
+        </tbody>
+        </table>
+      </div>
+
+</div>
