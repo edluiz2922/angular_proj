@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProfessoresComponent implements OnInit {
   
+  public varProfSelecionado!: string;
+
   public titulo = '--Professores--';
 
   public professores =[
@@ -18,6 +20,14 @@ export class ProfessoresComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  funcProf_Select (varProf:any){
+    this.varProfSelecionado = varProf.nome;
+  }
+
+  voltar_prof(){
+    this.varProfSelecionado = '';
   }
 
 }

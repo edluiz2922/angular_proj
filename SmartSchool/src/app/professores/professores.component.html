@@ -1,20 +1,39 @@
-<app-titulo [titulo]="titulo"></app-titulo>
 
-<!-- https://getbootstrap.com/docs/4.0/content/tables/-->
+<div class="prof">
+    <app-titulo [titulo]="titulo"></app-titulo>
+      
+      <div *ngIf="varProfSelecionado">
+        <a>
+        O professor é..tammmm... : {{varProfSelecionado}};
+      </a>
+        <br>
+          <button class="btn btn-voltar"
+          (click)="voltar_prof()">
+            voltar
+          </button>
+      </div>
 
-<table class="table">
-    <thead class="thead-dark">
-      <tr>
-        <th scope="col">#</th>
-        <th scope="col">NOME</th>
-        <th scope="col">DICIPLINA</th>
-        
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let prof of professores">
-        <th scope="row">{{prof.id}}</th>
-        <td>{{prof.nome}}</td>
-        <td>{{prof.disciplina}}</td>  
-    </tbody>
-  </table>
+      <div *ngIf="!varProfSelecionado">
+
+        <a> Nenhum Professor aqui agora!</a>      
+      </div>
+         <!-- https://getbootstrap.com/docs/4.0/content/tables/-->
+      <div class="tab">
+          <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">ID</th>
+                  <th scope="col">NOME</th>
+                  <th scope="col">DICIPLINA</th>              
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let letprof of professores"
+                  style ="cursor : pointer;" (click)="funcProf_Select(letprof)">
+                  <th scope="row">{{letprof.id}}</th>
+                  <td>{{letprof.nome}}</td>
+                  <td>{{letprof.disciplina}}</td>  
+              </tbody>
+          </table>
+      </div>  
+    </div>
