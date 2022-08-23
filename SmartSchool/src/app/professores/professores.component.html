@@ -1,24 +1,31 @@
 
-<div class="prof">
-    <app-titulo [titulo]="titulo"></app-titulo>
-      
+<div class ="CorTelaProf">
+
       <div *ngIf="varProfSelecionado">
-        <a>
-        O professor é..tammmm... : {{varProfSelecionado}};
-      </a>
-        <br>
-          <button class="btn btn-voltar"
-          (click)="voltar_prof()">
-            voltar
-          </button>
-      </div>
-
-      <div *ngIf="!varProfSelecionado">
-
-        <a> Nenhum Professor aqui agora!</a>      
-      </div>
+          <div class="row">
+              <div class="mr-auto">
+                <app-titulo [titulo]="'Professor.. ' + varProfSelecionado.nome" ></app-titulo>
+              </div>
+              <div class="mt-1" >
+                <button class="btn btn-success" (click)="voltar_prof()">voltar</button>     
+              </div>
+          </div>
+        <form>
+            <div class="form-group">
+              <label for="formGroupExmpleInput">Nome</label>
+              <input type="text" class="form-control" >          
+            </div>
+            <div class="form-group">
+              <label for="formGroupExmpleInput">disciplina</label>
+              <input type="text" class="form-control" >          
+            </div>          
+        </form>
+      </div> <!-- fim ngIf -->   
+      <!--  -->  
+      <div *ngIf="!varProfSelecionado">  
+        <h1> {{titulo}}</h1>     
          <!-- https://getbootstrap.com/docs/4.0/content/tables/-->
-      <div class="tab">
+          
           <table class="table">
               <thead class="thead-dark">
                 <tr>
@@ -34,6 +41,7 @@
                   <td>{{letprof.nome}}</td>
                   <td>{{letprof.disciplina}}</td>  
               </tbody>
-          </table>
-      </div>  
-    </div>
+          </table>           
+       </div> <!-- fim ngIf-->
+    </div> <!-- fim CorTelaProf-->
+ 

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NonNullableFormBuilder } from '@angular/forms';
+import { Ialuno } from '../models/Ialuno';
 
 @Component({
   selector: 'app-alunos',
@@ -8,9 +10,10 @@ import { Component, OnInit } from '@angular/core';
 export class AlunosComponent implements OnInit {
 
 
-  public alunoSelecionado!: string;
+  public alunoSelecionado!: Ialuno;
 
-  public titulo = "-TELA ALUNO-"
+  public titulo = "-- Aluno --"
+
   public alunos =[
     {id: 1, nome: "al_1", sobrenome:"al_1sb" , telefone:"111-111"},
     {id: 2, nome: "al_2", sobrenome:"al_2sb" , telefone:"222.222"},
@@ -21,11 +24,14 @@ export class AlunosComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  alunoSelect(aluno:any){
-    this.alunoSelecionado = aluno.nome;
+  alunoSelect(aluno:Ialuno){
+    this.alunoSelecionado = aluno;
   }
   voltar(){
-    this.alunoSelecionado = '';
+     this.alunoSelecionado = null;
+     /* no caso só aceita null se for no arquivo tsconfig.json
+     e mudar o   "strict": false,
+     */
   }
 
 }
