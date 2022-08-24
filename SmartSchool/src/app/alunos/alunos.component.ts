@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NonNullableFormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, NonNullableFormBuilder, Validators } from '@angular/forms';
+
 import { Ialuno } from '../models/Ialuno';
 
 @Component({
@@ -9,7 +10,7 @@ import { Ialuno } from '../models/Ialuno';
 })
 export class AlunosComponent implements OnInit {
 
-
+  public alunoForm: FormGroup;
   public alunoSelecionado!: Ialuno;
 
   public titulo = "-- Aluno --"
@@ -25,13 +26,18 @@ export class AlunosComponent implements OnInit {
     {id: 5, nome: "al_5", sobrenome:"al_2sb" , telefone:"222.222"},
     {id: 6, nome: "al_6", sobrenome:"al_3sb" , telefone:"333-333"},
   ];
-  constructor() { }
+  constructor(private fb: FormBuilder)
+   {
+    this.criarForm();
+
+    }
 
   ngOnInit(): void {
   }
 
   alunoSelect(aluno:Ialuno){
     this.alunoSelecionado = aluno;
+    this.alunoForm.patchValue(aluno);
   }
   voltar(){
      this.alunoSelecionado = null;
@@ -39,5 +45,20 @@ export class AlunosComponent implements OnInit {
      e mudar o   "strict": false,
      */
   }
+    
+  criarForm(){
+    this.alunoForm = this.fb.group(
+      {
+      nome:['', Validators.required],
+      sobrenome:['', Validators.required],
+      telefone:['', Validators.required],
+     });
+
+  }
+  alunoSubmit()
+  {
+    console.log(this.alunoForm.value);   
+
+  }  
 
 }
