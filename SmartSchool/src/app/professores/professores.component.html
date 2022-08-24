@@ -1,10 +1,10 @@
 
 <div class ="CorTelaProf">
-
-      <div *ngIf="varProfSelecionado">
+ <div class="row">
+      <div  class="col-sm-6"  *ngIf="varProfSelecionado">
           <div class="row">
               <div class="mr-auto">
-                <app-titulo [titulo]="'Professor.. ' + varProfSelecionado.nome" ></app-titulo>
+                <app-titulo [titulo]="'Professor.. ' + varProfSelecionado.id" ></app-titulo>
               </div>
               <div class="mt-1" >
                 <button class="btn btn-success" (click)="voltar_prof()">voltar</button>     
@@ -13,16 +13,17 @@
         <form>
             <div class="form-group">
               <label for="formGroupExmpleInput">Nome</label>
-              <input type="text" class="form-control" >          
+              <input type="text" value="{{varProfSelecionado.nome}}" class="form-control" >          
             </div>
             <div class="form-group">
               <label for="formGroupExmpleInput">disciplina</label>
-              <input type="text" class="form-control" >          
+              <input type="text" value="{{varProfSelecionado.disciplina}}"  class="form-control" >          
             </div>          
         </form>
       </div> <!-- fim ngIf -->   
       <!--  -->  
-      <div *ngIf="!varProfSelecionado">  
+      <div  [ngClass]="{'col-sm-6 mt-2': varProfSelecionado,
+      'col-sm-12 ': !varProfSelecionado}">  
         <h1> {{titulo}}</h1>     
          <!-- https://getbootstrap.com/docs/4.0/content/tables/-->
           
@@ -42,6 +43,7 @@
                   <td>{{letprof.disciplina}}</td>  
               </tbody>
           </table>           
-       </div> <!-- fim ngIf-->
-    </div> <!-- fim CorTelaProf-->
+       </div> <!-- fim ngClass-->
+    </div>
+  </div> <!-- fim CorTelaProf-->
  

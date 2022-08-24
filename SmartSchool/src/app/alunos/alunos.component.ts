@@ -18,6 +18,12 @@ export class AlunosComponent implements OnInit {
     {id: 1, nome: "al_1", sobrenome:"al_1sb" , telefone:"111-111"},
     {id: 2, nome: "al_2", sobrenome:"al_2sb" , telefone:"222.222"},
     {id: 3, nome: "al_3", sobrenome:"al_3sb" , telefone:"333-333"},
+    {id: 4, nome: "al_4", sobrenome:"al_1sb" , telefone:"111-111"},
+    {id: 5, nome: "al_5", sobrenome:"al_2sb" , telefone:"222.222"},
+    {id: 6, nome: "al_6", sobrenome:"al_3sb" , telefone:"333-333"},
+    {id: 4, nome: "al_4", sobrenome:"al_1sb" , telefone:"111-111"},
+    {id: 5, nome: "al_5", sobrenome:"al_2sb" , telefone:"222.222"},
+    {id: 6, nome: "al_6", sobrenome:"al_3sb" , telefone:"333-333"},
   ];
   constructor() { }
 
