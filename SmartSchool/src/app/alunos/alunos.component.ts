@@ -38,6 +38,10 @@ export class AlunosComponent implements OnInit {
   alunoSelect(aluno:Ialuno){
     this.alunoSelecionado = aluno;
     this.alunoForm.patchValue(aluno);
+    /* 
+    não usou o setValue pq ele iria pegar 
+    um por vez  e o patchValue pega tudo
+     */
   }
   voltar(){
      this.alunoSelecionado = null;
@@ -45,6 +49,7 @@ export class AlunosComponent implements OnInit {
      e mudar o   "strict": false,
      */
   }
+
     
   criarForm(){
     this.alunoForm = this.fb.group(
